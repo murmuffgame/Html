@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2025 Tech Trends</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable dark mode toggle with class
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-white font-sans transition-colors duration-300">
+  <!-- Toggle Button -->
+  <div class="text-right p-4">
+    <button onclick="toggleDark()" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
+      Toggle Dark/Light
+    </button>
+  </div>
+
+  <div class="container mx-auto px-6 py-12">
+    <h1 class="text-4xl md:text-6xl font-bold text-center bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent mb-16 fade-up">
+      2025 Tech Trends
+    </h1>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Trend Card -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:shadow-lg transition fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24"><path d="M9 12h6M12 9v6m9-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h2 class="text-xl font-semibold">AI Everywhere</h2>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400">From healthcare to education, AI is driving every industry forward in 2025.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:shadow-lg transition fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20"/></svg>
+          <h2 class="text-xl font-semibold">Green Tech</h2>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400">Eco-friendly innovations dominate 2025's technology scene.</p>
+      </div>
+
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-800 hover:shadow-lg transition fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2"
+               viewBox="0 0 24 24"><path d="M12 20l9-5-9-5-9 5 9 5z" /><path d="M12 12V4l9 5" /></svg>
+          <h2 class="text-xl font-semibold">Metaverse Workspaces</h2>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400">Virtual offices are the new normal for collaboration and productivity.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="mt-20 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+    &copy; 2025 Trend Web. Built with Tailwind CSS.
+  </footer>
+
+  <script>
+    function toggleDark() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Scroll animation
+    const fadeUps = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.1 });
+
+    fadeUps.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
